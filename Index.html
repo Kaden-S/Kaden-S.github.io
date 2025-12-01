@@ -6,6 +6,199 @@
   <title>Retro Game Hub</title>
   <link rel="stylesheet" href="retro.css" />
 </head>
+  <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --retro-green: #00ff90;
+  --retro-bg: #181427;
+  --retro-yellow: #ffe451;
+  --retro-pink: #ff69b4;
+  --retro-purple: #8f6fff;
+  --card-bg: #241f37;
+  --card-border: #ffe451;
+  --card-shadow: 0 6px 24px #18142777;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace, monospace;
+  background: linear-gradient(135deg, #181427 90%, #3c3467 100%);
+  color: var(--retro-green);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  letter-spacing: 1.5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: var(--retro-purple);
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  border-bottom: 6px double var(--retro-yellow);
+  box-shadow: 0 2px 0 var(--retro-yellow), 0 8px 20px #0006;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.1rem;
+  color: var(--retro-yellow);
+  text-shadow: 3px 3px var(--retro-green), 0 0 2px #000, 0 0 16px var(--retro-yellow);
+  letter-spacing:3px;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: var(--retro-green);
+  background: #000b;
+  border: 2px solid var(--retro-yellow);
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 2px 2px var(--retro-yellow);
+}
+
+nav a:hover, nav a:focus {
+  background: var(--retro-yellow);
+  color: var(--retro-bg);
+  border-color: var(--retro-green);
+}
+
+/* Main */
+main {
+  flex: 1 1 auto;
+  max-width: 800px;
+  width: 95vw;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+main h2 {
+  color: var(--retro-pink);
+  margin-bottom: 2.5rem;
+  text-shadow: 2px 2px 0 var(--retro-yellow);
+  font-size: 1.5rem;
+}
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Game Cards */
+.game-card {
+  background: var(--card-bg);
+  border: 3px dashed var(--card-border);
+  color: var(--retro-green);
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  text-align: center;
+  transition: transform 0.18s cubic-bezier(.3,1.6,.97,.3), box-shadow 0.22s;
+}
+
+.game-card:hover,
+.game-card:focus-within {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 40px var(--retro-pink), 0 1.5px 8px 0 var(--retro-yellow);
+  z-index: 2;
+  border-color: var(--retro-pink);
+}
+
+.game-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.08rem;
+  font-weight: bold;
+}
+
+.game-card a {
+  color: var(--retro-yellow);
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px #0004;
+  padding: 0.1rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.22s, color 0.22s;
+  border-bottom:2px solid var(--retro-pink);
+}
+
+.game-card a:hover {
+  background: var(--retro-pink);
+  color: var(--retro-bg);
+}
+
+.game-card p {
+  color: #aaffcc;
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.5rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--retro-yellow);
+  background: linear-gradient(90deg, #201a38 50%, #2b2548 100%);
+  border-top: 4px solid var(--retro-yellow);
+  box-shadow: 0 -1px 8px #0008;
+}
+
+/* Responsive font sizes */
+@media (max-width: 640px) {
+  html {
+    font-size: 12px;
+  }
+  header h1 {
+    font-size: 1.15rem;
+  }
+  main {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+  .game-card {
+    padding: 1.3rem 0.6rem;
+  }
+}
+
+/* CRT Scanline Effect (Optional Retro Feel) */
+body::before {
+  content: "";
+  display: block;
+  pointer-events: none;
+  position: fixed;
+  left:0; top: 0; right:0; bottom:0;
+  z-index: 99999;
+  opacity: 0.10;
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, #080320 2px, transparent 4px);
+  mix-blend-mode: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #221a36;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--retro-purple);
+  border-radius: 4px;
+}
+  </style>
 <body>
   <header>
     <h1>🕹️ Retro Game Hub 🕹️</h1>
